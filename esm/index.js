@@ -6,7 +6,6 @@ import { createPipeline, pipe } from './pipeline'
 
 const program = new Command()
 program
-	.version('0.0.1')
 	.option('-i, --insecure', 'disable ssl verification')
 	.requiredOption('-u, --uri <uri>', 'uri of the graphql endpoint')
 	.option('-a, --admin-secret <secret>', 'hasura admin secret')
