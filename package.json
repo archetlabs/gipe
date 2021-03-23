@@ -1,6 +1,6 @@
 {
   "name": "@archet/gipe",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "",
   "module": "esm/index.js",
   "main": "cjs/index.js",
@@ -34,6 +34,6 @@
   },
   "homepage": "https://github.com/archetlabs/gipe#readme",
   "bin": {
-    "gipe": "./cjs/index.js"
+    "gipe": "./cli.js"
   }
 }
