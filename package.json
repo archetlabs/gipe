@@ -1,0 +1,39 @@
+{
+  "name": "@archet/gipe",
+  "version": "0.0.1",
+  "description": "",
+  "module": "esm/index.js",
+  "main": "cjs/index.js",
+  "scripts": {
+    "build": "babel esm --out-dir cjs",
+    "prepublishOnly": "npm run build"
+  },
+  "dependencies": {
+    "@apollo/client": "^3.3.12",
+    "commander": "^4.1.1",
+    "graphql": "^15.5.0",
+    "stream-chain": "^2.2.4",
+    "stream-json": "^1.7.1",
+    "subscriptions-transport-ws": "^0.9.18",
+    "ws": "^7.4.4"
+  },
+  "devDependencies": {
+    "@babel/cli": "7.7.4",
+    "@babel/core": "7.7.4",
+    "@babel/plugin-transform-runtime": "^7.13.10",
+    "@babel/preset-env": "7.7.4"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/archetlabs/gipe.git"
+  },
+  "author": "Archet",
+  "license": "LGPL-3.0-only",
+  "bugs": {
+    "url": "https://github.com/archetlabs/gipe/issues"
+  },
+  "homepage": "https://github.com/archetlabs/gipe#readme",
+  "bin": {
+    "gipe": "./cjs/index.js"
+  }
+}
