@@ -19,11 +19,19 @@ const graphqlPath = options?.document
 const graphqlOperation = options?.operationName
 const graphqlDocument = parseFile(graphqlPath)
 
+function handleError(error) {
+	console.error(error)
+	process.exit(1)
+}
+
 if (options.insecure) {
 	process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0'
 }
 
 const pipeline = createPipeline(process.stdin)
+pipeline.on('error', handleError)
+pipeline.on('end', () => process.exit(0))
+
 const client = connect({
 	uri: options?.uri,
 	token: options?.token,
@@ -33,10 +41,7 @@ const client = connect({
 const handlers = {
 	mutation: console.log,
 	query: console.log,
-	error: x => {
-		console.error(x)
-		process.exit(1)
-	},
+	error: handleError,
 }
 
 if (graphqlOperation) {
