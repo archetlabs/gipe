@@ -13,6 +13,37 @@ export function createPipeline(input) {
 	])
 }
 
+export async function executeDefinition(client, definition, then, error) {
+	const operationType = definition.definitions[0].operation
+	switch (operationType) {
+		case 'mutation': {
+			try {
+				const result = await client.mutate({
+					mutation: definition,
+					variables: { },
+				})
+				then && then(result.data)
+			} catch (e) {
+				error && error(e)
+			}
+			break
+		}
+		case 'query': {
+			try {
+				const result = await client.query({
+					query: definition,
+					variables: { },
+				})
+				then && then(result.data)
+			} catch (e) {
+				error && error(e)
+			}
+			break
+		}
+	}
+
+}
+
 export function pipeDefinition(pipeline, client, definition, { mutation, query, error }) {
 	const operationType = definition.definitions[0].operation
 	switch (operationType) {

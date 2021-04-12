@@ -1,6 +1,6 @@
 {
   "name": "@archet/gipe",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "",
   "module": "esm/index.js",
   "main": "cjs/index.js",
@@ -13,6 +13,7 @@
     "@babel/runtime": "^7.13.10",
     "commander": "^4.1.1",
     "graphql": "^15.5.0",
+    "lodash": "^4.17.21",
     "stream-chain": "^2.2.4",
     "stream-json": "^1.7.1",
     "subscriptions-transport-ws": "^0.9.18",

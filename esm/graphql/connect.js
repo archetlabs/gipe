@@ -14,6 +14,7 @@ export function connect({ uri, adminSecret, token }) {
 			errorPolicy: 'all',
 		},
 		mutate: {
+			fetchPolicy: 'no-cache',
 			errorPolicy: 'all',
 		},
 	}
