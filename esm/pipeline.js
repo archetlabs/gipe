@@ -54,7 +54,7 @@ export function pipeDefinition(pipeline, client, definition, { mutation, query, 
 						mutation: definition,
 						variables,
 					})
-					mutation && mutation(JSON.stringify(result.data))
+					mutation && mutation(result.data)
 				} catch (e) {
 					error && error(e)
 				}
@@ -67,7 +67,7 @@ export function pipeDefinition(pipeline, client, definition, { mutation, query, 
 						query: definition,
 						variables,
 					})
-					query && query(JSON.stringify(result.data))
+					query && query(result.data)
 				} catch (e) {
 					error && error(e)
 				}
@@ -88,7 +88,7 @@ export function pipeDocument(pipeline, client, graphqlDocument, { mutation, quer
 						mutation: definition,
 						variables,
 					})
-					mutation && mutation(JSON.stringify(result.data))
+					mutation && mutation(result.data)
 				}
 				break
 				case 'query': {
@@ -96,7 +96,7 @@ export function pipeDocument(pipeline, client, graphqlDocument, { mutation, quer
 						query: definition,
 						variables,
 					})
-					query && query(JSON.stringify(result.data))
+					query && query(result.data)
 				}
 				break
 			}

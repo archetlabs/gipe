@@ -32,6 +32,10 @@ function handleError(error) {
 	process.exit(1)
 }
 
+function handleSuccess(data) {
+	console.log(JSON.stringify(data))
+}
+
 if (options.insecure) {
 	process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0'
 }
@@ -57,7 +61,7 @@ if (options.single) {
 				console.log(JSON.stringify(data))
 				process.exit(0)
 			}),
-			() => process.exit(1)
+			handleError,
 		)
 	}
 } else {
@@ -66,8 +70,8 @@ if (options.single) {
 	pipeline.on('end', () => process.exit(0))
 	
 	const handlers = {
-		mutation: console.log,
-		query: console.log,
+		mutation: handleSuccess,
+		query: handleSuccess,
 		error: handleError,
 	}
 	
